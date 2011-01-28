@@ -1,28 +1,31 @@
 
-%define		_beta	beta1	
+%define		_beta	beta1
 Summary:	Sparkleshare is a file sharing and colaborating tool
 Summary(pl.UTF-8):	Sparkleshare to narzędzie do współdzielenia plików
 Name:		sparkleshare
 Version:	0.2
 Release:	0.%{_beta}.1
-License:	GPLv3
-Group:		Administration/System
+License:	GPL v3
+Group:		Applications/File
 Source0:	http://sparkleshare.org/%{name}-%{version}-%{_beta}.tar.gz
 # Source0-md5:	5dec96cac3459f6b6df4b0418f8ed274
 URL:		https://sparkleshare.org
-BuildRequires:	gettext-devel
-BuildRequires:	mono-csharp
 BuildRequires:	dotnet-gtk-sharp2-devel
 BuildRequires:	dotnet-ndesk-dbus-glib-sharp-devel
+BuildRequires:	gettext-devel
+BuildRequires:	intltool
+BuildRequires:	mono-csharp
 BuildRequires:	nautilus-python
-Requires:	mono
+BuildRequires:	pkgconfig
 Requires:	dotnet-gtk-sharp2
 Requires:	dotnet-ndesk-dbus-glib-sharp
 Requires:	git-core
+Requires:	mono
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Sparkleshare is a file sharing and colaborating tool inspired by Dropbox.
+Sparkleshare is a file sharing and colaborating tool inspired by
+Dropbox.
 
 %description -l pl.UTF-8
 Sparkleshare to narzędzie do współdzielenia plików i pracy grupowej
@@ -44,8 +47,7 @@ Ten pakiet zawiera wtyczke sparkleshare do Nautilusa
 %setup -q -n %{name}-%{version}-%{_beta}
 
 %build
-
-%configure 
+%configure
 
 %{__make}
 
