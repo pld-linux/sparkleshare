@@ -4,7 +4,7 @@ Summary:	Sparkleshare is a file sharing and colaborating tool
 Summary(pl.UTF-8):	Sparkleshare to narzędzie do współdzielenia plików
 Name:		sparkleshare
 Version:	0.2
-Release:	0.%{_beta}.1
+Release:	0.%{_beta}.2
 License:	GPL v3
 Group:		Applications/File
 Source0:	http://sparkleshare.org/%{name}-%{version}-%{_beta}.tar.gz
@@ -17,6 +17,8 @@ BuildRequires:	intltool
 BuildRequires:	mono-csharp
 BuildRequires:	nautilus-python
 BuildRequires:	pkgconfig
+Requires(post,postun):	gtk-update-icon-cache
+Requires(post,postun):	hicolor-icon-theme
 Requires:	dotnet-gtk-sharp2
 Requires:	dotnet-ndesk-dbus-glib-sharp
 Requires:	git-core
