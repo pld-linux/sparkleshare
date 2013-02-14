@@ -18,7 +18,6 @@ BuildRequires:	dotnet-webkit-sharp-devel
 BuildRequires:	gettext-devel
 BuildRequires:	intltool
 BuildRequires:	mono-csharp
-#BuildRequires:	nautilus-python
 BuildRequires:	pkgconfig
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
@@ -40,18 +39,6 @@ distributions, Mac and Windows.
 %description -l pl.UTF-8
 Sparkleshare to narzędzie do współdzielenia plików i pracy grupowej
 zainspirowane Dropboksem.
-
-%package plugin-nautilus
-Summary:	The sparkleshare plugin for nautilus
-Summary(pl.UTF-8):	Wtyczka sparkleshare do nautilusa
-Group:		X11/Applications
-Requires:	nautilus-python
-
-%description plugin-nautilus
-This package contains the sparkleshare Nautilus plugin
-
-%description plugin-nautilus -l pl.UTF-8
-Ten pakiet zawiera wtyczke sparkleshare do Nautilusa
 
 %prep
 %setup -q
@@ -89,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.md
+%doc README.md News.txt
 %attr(755,root,root) %{_bindir}/%{name}
 %{_datadir}/%{name}
 %{_desktopdir}/sparkleshare.desktop
@@ -98,9 +85,3 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/%{name}
 %{_libdir}/%{name}/*.dll*
 %{_libdir}/%{name}/*.exe*
-
-%if 0
-%files plugin-nautilus
-%defattr(644,root,root,755)
-%{_libdir}/nautilus/extensions-2.0/python/sparkleshare-nautilus-extension.py
-%endif
