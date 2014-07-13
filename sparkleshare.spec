@@ -9,6 +9,8 @@ License:	GPL v3
 Group:		Applications/File
 Source0:	https://bitbucket.org/hbons/sparkleshare/downloads/%{name}-linux-%{version}.tar.gz
 # Source0-md5:	66ae2b680d723f7a8b38e184d3b3dc55
+Source1:	https://github.com/hbons/Dazzle/archive/8e0063e/dazzle.tar.gz
+# Source1-md5:	d17e3f9ef046424768144e4b13761472
 URL:		https://sparkleshare.org/
 BuildRequires:	desktop-file-utils
 BuildRequires:	dotnet-gtk-sharp3-devel
@@ -41,7 +43,9 @@ Sparkleshare to narzędzie do współdzielenia plików i pracy grupowej
 zainspirowane Dropboksem.
 
 %prep
-%setup -q
+%setup -q -a1
+mv Dazzle-*/README README.dazzle
+mv Dazzle-*/dazzle.sh .
 
 %build
 %configure
@@ -51,6 +55,8 @@ zainspirowane Dropboksem.
 rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+install -p dazzle.sh $RPM_BUILD_ROOT%{_bindir}/dazzle
 
 # unsupported themes
 %{__rm} -r $RPM_BUILD_ROOT%{_iconsdir}/ubuntu-mono-dark
@@ -76,8 +82,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.md News.txt
-%attr(755,root,root) %{_bindir}/%{name}
+%doc README.md News.txt README.dazzle
+%attr(755,root,root) %{_bindir}/dazzle
+%attr(755,root,root) %{_bindir}/sparkleshare
 %{_datadir}/%{name}
 %{_desktopdir}/sparkleshare.desktop
 %{_desktopdir}/sparkleshare-invite-opener.desktop
