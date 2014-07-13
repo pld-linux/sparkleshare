@@ -3,18 +3,18 @@
 Summary:	Sparkleshare is a file sharing and colaborating tool
 Summary(pl.UTF-8):	Sparkleshare to narzędzie do współdzielenia plików
 Name:		sparkleshare
-Version:	1.0.0
+Version:	1.4
 Release:	0.1
 License:	GPL v3
 Group:		Applications/File
-Source0:	https://github.com/downloads/hbons/SparkleShare/%{name}-linux-%{version}.tar.gz
-# Source0-md5:	1f43c873e220a8a8f28ee46b33e4ca19
+Source0:	https://bitbucket.org/hbons/sparkleshare/downloads/%{name}-linux-%{version}.tar.gz
+# Source0-md5:	66ae2b680d723f7a8b38e184d3b3dc55
 URL:		https://sparkleshare.org/
 BuildRequires:	desktop-file-utils
-BuildRequires:	dotnet-gtk-sharp2-devel
+BuildRequires:	dotnet-gtk-sharp3-devel
 BuildRequires:	dotnet-ndesk-dbus-glib-sharp-devel
-BuildRequires:	dotnet-notify-sharp-devel >= 0.4.0-4
-BuildRequires:	dotnet-webkit-sharp-devel
+BuildRequires:	dotnet-notify-sharp3-devel >= 3.0
+BuildRequires:	dotnet-webkitgtk-sharp
 BuildRequires:	gettext-devel
 BuildRequires:	intltool
 BuildRequires:	mono-csharp
@@ -23,7 +23,7 @@ Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires:	dotnet-gtk-sharp2
 Requires:	dotnet-ndesk-dbus-glib-sharp
-Requires:	git-core >= 1.7.12
+Requires:	git-core >= 1.8
 Requires:	mono
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
