@@ -17,7 +17,7 @@ BuildRequires:	dotnet-gtk-sharp3-devel
 BuildRequires:	dotnet-ndesk-dbus-glib-sharp-devel
 BuildRequires:	dotnet-notify-sharp3-devel >= 3.0
 BuildRequires:	dotnet-webkitgtk-sharp
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	intltool
 BuildRequires:	mono-csharp
 BuildRequires:	pkgconfig
